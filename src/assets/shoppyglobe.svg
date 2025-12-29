@@ -1,0 +1,29 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 520 120"
+    width="180"
+    height="42"
+    aria-label="ShoppyGlobe Logo"
+>
+    <!-- Cart + Globe Icon -->
+    <g transform="translate(0,10)">
+        <!-- Globe -->
+        <circle cx="50" cy="40" r="28" fill="#22c55e" />
+        <path d="M22 40h56M50 12v56" stroke="#ffffff" stroke-width="2" />
+        <ellipse cx="50" cy="40" rx="28" ry="12" fill="none" stroke="#ffffff" stroke-width="2" />
+
+        <!-- Cart -->
+        <rect x="18" y="38" width="64" height="26" rx="6" fill="#2563eb" />
+        <circle cx="32" cy="70" r="5" fill="#f97316" />
+        <circle cx="68" cy="70" r="5" fill="#f97316" />
+
+        <!-- Handle -->
+        <path d="M18 38l-8-12" stroke="#f97316" stroke-width="4" stroke-linecap="round" />
+    </g>
+
+    <!-- Brand Text -->
+    <text x="120" y="55" font-size="40" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+        <tspan fill="#f97316">Shoppy</tspan>
+        <tspan fill="#2563eb">Globe</tspan>
+    </text>
+</svg>

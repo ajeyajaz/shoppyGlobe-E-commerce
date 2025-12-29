@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+@layer utilities {
+
+    .opacity-effect {
+        transition: opacity ease-in 0.2s;
+    }
+
+    .opacity-effect:hover {
+        opacity: 0.5;
+    }
+
+    /* header */
+
+    /* Container */
+    .icon-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Icon */
+    .icon-label__icon {
+        width: 24px;
+        height: 24px;
+        color: #9ca3af;
+    }
+
+    /* Label */
+    .icon-label__text {
+        display: none;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+        .icon-label__text {
+            display: block;
+        }
+    }
+
+}
