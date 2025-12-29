@@ -5,10 +5,11 @@ function SearchBox({ value, placeholder = '', onChange = () => { } }) {
     const [open, setOpen] = useState(false);
 
     return (
-        <div>
+        <div className="sm:flex-1">
+            
             {/* >= 640px screens */}
             <div
-                className="hidden p-1 border border-gray-400 rounded-sm w-70 sm:flex">
+                className="hidden p-1 border border-gray-400 rounded-sm sm:flex">
                 <MagnifyingGlassIcon
                     className="w-6 h-6 text-gray-400" />
                 <input

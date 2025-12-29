@@ -23,29 +23,30 @@ function Header() {
     };
 
     return (
-        <header className="flex items-center justify-between gap-4 h-20 px-2  shadow-md">
+        <header className="flex items-center gap-8  h-20 px-2  shadow-md justify-around">
 
-            <div className="flex items-center gap-5">
+                {/* Brand logo */}
                 <img
                     src={shopyGlobe}
                     className="min-w-min h-auto object-contain"
                 />
+
+                {/* navigation */}
                 <NavBar
                     links={links}
-                    className="hidden gap-4 lg:flex"
+                    className="hidden gap-8 mr-20 lg:flex"
                     itemClassName="uppercase text-sm font-semibold text-gray-700 hover:text-gray-500  transition-colors">
                 </NavBar>
-            </div>
+            
 
-
-            <div className="flex gap-2 items-center">
+                {/* searchBox */}
                 <SearchBox
                     placeholder='search products...'
                     onChange={handleSearchChange}
                     value={input}
-
                 />
 
+                {/* labelIcon */}
                 <IconLabel
                     icon={UserIcon}
                     label='User'
@@ -67,7 +68,6 @@ function Header() {
                     iconClassName="icon-label__icon"
                     labelClassName="icon-label__text"
                 />
-            </div>
         </header>
     )
 }
