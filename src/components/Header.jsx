@@ -2,13 +2,16 @@ import NavBar from "./NavBar"
 import shopyGlobe from '../assets/shoppyglobe.svg'
 import IconLabel from "./IconLabel"
 import SearchBox from './SearchBox'
+import QuatityBadge from "./QuantityBadge"
 import { HeartIcon, UserIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useState } from "react"
+import { useSelector } from "react-redux"
 
 
 function Header() {
 
     const [input, setInput] = useState('');
+    const cartItemCount = useSelector(state => state.cart.cartItems.length);
 
     const links = [
         { id: 'ne1', label: 'beauty', path: '/beauty' },
@@ -66,10 +69,15 @@ function Header() {
             <IconLabel
                 icon={ShoppingBagIcon}
                 label='Bag'
-                className="icon-container opacity-effect"
+                className="icon-container opacity-effect relative"
                 iconClassName="icon-label__icon"
                 labelClassName="icon-label__text"
-            />
+            >   
+                {/* quantity count-badge */}
+                <QuatityBadge
+                    quantity={cartItemCount}
+                    className="absolute -top-2" />
+            </IconLabel>
         </header>
     )
 }

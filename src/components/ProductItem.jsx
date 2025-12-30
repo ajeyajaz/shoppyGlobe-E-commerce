@@ -1,10 +1,23 @@
-import shopyGlobe from '../assets/shoppyGlobe.svg'
 import Button from './Button'
 import { ShoppingBagIcon, HeartIcon } from '@heroicons/react/24/outline'
+import { useDispatch } from 'react-redux';
+import { addCart } from '../redux/features/CartSlice'
 
 function ProductItem({ product, className = '' }) {
 
+    const dispatch = useDispatch();
     const originalPrice = product.price / (1 - product.discountPercentage / 100);
+
+    const cartItem = {
+        id: product.id,
+        brand: product.brand || null,
+        title: product.title,
+        description: product.description,
+        thumbnail: product.thumbnail,
+        price: product.price,
+        discountPercentage: product.discountPercentage,
+        originalPrice: parseFloat(originalPrice.toFixed(2))
+    }
 
     return (
         <div
@@ -30,7 +43,9 @@ function ProductItem({ product, className = '' }) {
                     {/* mobile screen addCart and Whishlist */}
                     <div
                         className='flex items-center gap-2 lg:hidden'>
-                        <button>
+                        <button
+                            onClick={() => dispatch(addCart(cartItem))}
+                        >
                             <ShoppingBagIcon
                                 className='w-6 h-6 click-effect cursor-pointer'
                             />
@@ -74,6 +89,7 @@ function ProductItem({ product, className = '' }) {
                     <Button
                         variant='primary'
                         className='py-2 w-full text-xs'
+                        onClick={() => dispatch(addCart(cartItem))}
                     >
                         <ShoppingBagIcon
                             className='w-5 h-5'
@@ -83,6 +99,7 @@ function ProductItem({ product, className = '' }) {
                     <Button
                         variant='secondary'
                         className='py-2 w-full text-xs'
+
                     >
                         <HeartIcon
                             className='w-5 h-5'
