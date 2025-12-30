@@ -2,8 +2,8 @@
 function Button({ variant, children, onClick = () => { }, className = '', }) {
 
     const buttons = {
-        primary: 'flex justify-center bg-red-400 rounded-sm text-white font-bold uppercase ' + className,
-        secondary: 'flex justify-center border rounded-sm text-black font-bold uppercase ' + className,
+        primary: 'flex justify-center bg-red-400 rounded-sm text-white font-bold uppercase cursor-pointer ' + className,
+        secondary: 'flex justify-center border rounded-sm text-black font-bold uppercase  cursor-pointer ' + className,
     }
 
     return (
