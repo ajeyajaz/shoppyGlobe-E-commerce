@@ -3,16 +3,28 @@ import axios from "axios";
 
 function useFetch(url) {
 
-    const [data, setData] = useState([]);
-    const [error, setError] = useState('');
-    const [loader, setLoader] = useState(true);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
-        axios.get(url)
+
+        const controller = new AbortController();
+
+        setLoader(true);
+        setError(null);
+
+        axios.get(url, {signal: controller.signal})
             .then((res) => setData(res.data))
-            .catch((e) => setError(e.message))
+            .catch((e) => {
+                if(axios.isCancel(e)) console.log('previous request abort');
+                else setError(e.message);
+            })
             .finally(() => setLoader(false));
-    }, []);
+
+        return () => controller.abort();
+
+    }, [url]);
 
     return { data, error, loader }
 }

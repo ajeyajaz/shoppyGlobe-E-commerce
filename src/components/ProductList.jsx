@@ -17,7 +17,7 @@ function ProductList() {
         <div
             className="grid grid-cols-1 justify-items-center items-center gap-y-15 gap-x-10
             sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-            {data.products.map(product => <ProductItem
+            {data?.products?.map(product => <ProductItem
                 product={product}
                 key={product.id}
                 className="max-w-60" />)
