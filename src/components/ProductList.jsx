@@ -14,14 +14,15 @@ function ProductList() {
     }
 
     return (
-        <div
-            className="grid grid-cols-1 justify-items-center items-center gap-y-15 gap-x-10
-            sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-            {data?.products?.map(product => <ProductItem
-                product={product}
-                key={product.id}
-                className="max-w-60" />)
-            }
+        <div className="pt-15">
+            <div
+                className="grid grid-cols-1 gap-y-14 gap-x-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+                {data?.products?.map(product => <ProductItem
+                    product={product}
+                    key={product.id}
+                    className="max-w-60" />)
+                }
+            </div>
         </div>
     )
 }
