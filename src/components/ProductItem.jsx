@@ -32,13 +32,13 @@ function ProductItem({ product, className = '' }) {
                         className='flex items-center gap-2 lg:hidden'>
                         <button>
                             <ShoppingBagIcon
-                                className='w-6 h-6'
+                                className='w-6 h-6 click-effect cursor-pointer'
                             />
                         </button>
 
                         <button>
                             <HeartIcon
-                                className='w-6 h-6'
+                                className='w-6 h-6 click-effect cursor-pointer'
                             />
                         </button>
                     </div>

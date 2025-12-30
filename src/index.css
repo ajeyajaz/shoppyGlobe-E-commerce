@@ -33,6 +33,14 @@
         font-size: 12px;
         font-weight: 600;
     }
+   
+    /* button hover-eff */
+    .click-effect{
+        transition: all ease-in 0.2s;
+    }
+    .click-effect:hover {
+        transform: scale(0.9);
+    }
 
     @media (min-width: 768px) {
         .icon-label__text {

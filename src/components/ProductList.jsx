@@ -5,7 +5,6 @@ function ProductList() {
 
     const { data, error, loader } = useFetch('https://dummyjson.com/products');
 
-    console.log(data)
     if (loader) {
         return <p>fetching...</p>
     }
