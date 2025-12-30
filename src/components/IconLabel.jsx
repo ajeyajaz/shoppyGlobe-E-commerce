@@ -1,5 +1,5 @@
 
-function IconLabel({ icon: Icon, label, className = '', iconClassName = '', labelClassName = '' }) {
+function IconLabel({ icon: Icon, label, children, className = '', iconClassName = '', labelClassName = '' }) {
 
     return (
         <button
@@ -9,6 +9,7 @@ function IconLabel({ icon: Icon, label, className = '', iconClassName = '', labe
             <Icon className={iconClassName} />
             {/* className="text-sm leading-none font-semibold" */}
             {label && <span className={labelClassName}>{label}</span>}
+            {children}
         </button>
     )
 }
