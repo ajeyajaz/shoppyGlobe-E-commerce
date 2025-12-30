@@ -23,51 +23,53 @@ function Header() {
     };
 
     return (
-        <header className="flex items-center gap-8  h-20 px-2  shadow-md justify-around">
+        <header
+            className="fixed top-0 left-0 right-0 z-50 flex items-center 
+            justify-around h-20 gap-1 px-2 bg-white flex-wrap shadow-md sm:gap-6">
 
-                {/* Brand logo */}
-                <img
-                    src={shopyGlobe}
-                    className="min-w-min h-auto object-contain"
-                />
+            {/* Brand logo */}
+            <img
+                src={shopyGlobe}
+                className="min-w-min h-auto object-contain"
+            />
 
-                {/* navigation */}
-                <NavBar
-                    links={links}
-                    className="hidden gap-8 mr-20 lg:flex"
-                    itemClassName="uppercase text-sm font-semibold text-gray-700 hover:text-gray-500  transition-colors">
-                </NavBar>
-            
+            {/* navigation */}
+            <NavBar
+                links={links}
+                className="hidden gap-8 lg:flex"
+                itemClassName="uppercase text-sm font-semibold text-gray-700 hover:text-gray-500  transition-colors">
+            </NavBar>
 
-                {/* searchBox */}
-                <SearchBox
-                    placeholder='search products...'
-                    onChange={handleSearchChange}
-                    value={input}
-                />
 
-                {/* labelIcon */}
-                <IconLabel
-                    icon={UserIcon}
-                    label='User'
-                    className="icon-container opacity-effect ml-3"
-                    iconClassName="icon-label__icon"
-                    labelClassName="icon-label__text"
-                />
-                <IconLabel
-                    icon={HeartIcon}
-                    label='Wishlist'
-                    className="icon-container opacity-effect"
-                    iconClassName="icon-label__icon"
-                    labelClassName="icon-label__text"
-                />
-                <IconLabel
-                    icon={ShoppingBagIcon}
-                    label='Bag'
-                    className="icon-container opacity-effect"
-                    iconClassName="icon-label__icon"
-                    labelClassName="icon-label__text"
-                />
+            {/* searchBox */}
+            <SearchBox
+                placeholder='search products...'
+                onChange={handleSearchChange}
+                value={input}
+            />
+
+            {/* labelIcon */}
+            <IconLabel
+                icon={UserIcon}
+                label='User'
+                className="icon-container opacity-effect ml-3"
+                iconClassName="icon-label__icon"
+                labelClassName="icon-label__text"
+            />
+            <IconLabel
+                icon={HeartIcon}
+                label='Wishlist'
+                className="icon-container opacity-effect"
+                iconClassName="icon-label__icon"
+                labelClassName="icon-label__text"
+            />
+            <IconLabel
+                icon={ShoppingBagIcon}
+                label='Bag'
+                className="icon-container opacity-effect"
+                iconClassName="icon-label__icon"
+                labelClassName="icon-label__text"
+            />
         </header>
     )
 }

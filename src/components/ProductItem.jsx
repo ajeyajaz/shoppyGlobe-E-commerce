@@ -66,9 +66,9 @@ function ProductItem({ product, className = '' }) {
 
                 {/* overlay for wide-screens */}
                 <div
-                    className='hidden absolute flex-col gap-1 justify-center items-center
-                     bg-white z-50 bottom-0 top-45 left-0 right-0 
-                     opacity-0 group-hover:opacity-100  transition-all duration-200 p-2 lg:flex '>
+                    className='hidden absolute flex-col justify-center items-center gap-1 p-2 
+                     bg-white  bottom-0 top-45 left-0 right-0 z-30 
+                     opacity-0 group-hover:opacity-100  transition-all duration-200 lg:flex '>
 
                     {/* addCart and whishlist */}
                     <Button
@@ -82,7 +82,7 @@ function ProductItem({ product, className = '' }) {
 
                     <Button
                         variant='secondary'
-                        className='py-2 w-full text-xs content-center'
+                        className='py-2 w-full text-xs'
                     >
                         <HeartIcon
                             className='w-5 h-5'
