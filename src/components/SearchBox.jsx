@@ -32,7 +32,7 @@ function SearchBox({ value, placeholder = '', onChange = () => { } }) {
             {/* Mobile overlay */}
             {open &&
                 <div
-                    className="absolute inset-0 z-50 bg-amber-50">
+                    className="fixed inset-0 z-50 bg-white">
                     <div
                         className="absolute top-0 left-0 right-0 flex shadow-md px-1">
                         <button>
