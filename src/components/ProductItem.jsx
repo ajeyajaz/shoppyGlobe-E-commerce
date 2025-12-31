@@ -34,7 +34,7 @@ function ProductItem({ product, className = '' }) {
 
             <div className='px-2  py-3 leading-7'>
 
-                {/* title and cart icon */}
+                {/* title and cart */}
                 <div className='flex justify-between gap-1'>
 
                     {/* brandName */}
@@ -62,7 +62,7 @@ function ProductItem({ product, className = '' }) {
                 {/* details */}
                 <div className='font-extralight text-sm space-x-2'>
 
-                    {/* product-name */}
+                    {/* name */}
                     <p>{product.title}</p>
 
                     {/* current-price */}
