@@ -6,11 +6,14 @@ import QuatityBadge from "./QuantityBadge"
 import { HeartIcon, UserIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useState } from "react"
 import { useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router"
 
 
 function Header() {
 
     const [input, setInput] = useState('');
+    const navigate = useNavigate();
+
     const cartItemCount = useSelector(state => state.cart.cartItems.length);
 
     const links = [
@@ -51,7 +54,7 @@ function Header() {
                 value={input}
             />
 
-            {/* labelIcon */}
+            {/* User */}
             <IconLabel
                 icon={UserIcon}
                 label='User'
@@ -59,6 +62,8 @@ function Header() {
                 iconClassName="icon-label__icon"
                 labelClassName="icon-label__text"
             />
+            
+            {/* Whishlist*/}
             <IconLabel
                 icon={HeartIcon}
                 label='Wishlist'
@@ -66,13 +71,16 @@ function Header() {
                 iconClassName="icon-label__icon"
                 labelClassName="icon-label__text"
             />
+
+            {/* Cart*/}
             <IconLabel
                 icon={ShoppingBagIcon}
+                onClick={() => navigate('/cart')}
                 label='Bag'
                 className="icon-container opacity-effect relative"
                 iconClassName="icon-label__icon"
                 labelClassName="icon-label__text"
-            >   
+            >
                 {/* quantity count-badge */}
                 <QuatityBadge
                     quantity={cartItemCount}
