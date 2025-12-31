@@ -1,5 +1,5 @@
 
-function IconLabel({ icon: Icon, label, children, className = '', iconClassName = '', labelClassName = '' }) {
+function IconLabel({ icon: Icon, label, children, className = '', iconClassName = '', labelClassName = '', onClick = () => {} }) {
 
     return (
         <button
