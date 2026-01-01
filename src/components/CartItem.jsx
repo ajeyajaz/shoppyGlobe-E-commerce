@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { updateCart } from '../redux/features/CartSlice'
 import SelectButton from './SelectButton'
 
