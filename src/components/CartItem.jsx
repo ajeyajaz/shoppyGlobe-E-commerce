@@ -5,8 +5,9 @@ import SelectButton from './SelectButton'
 
 function CartItem({ item }) {
 
-   
-    const quatity = [
+    const dispatch = useDispatch();
+
+    const quatityOptions = [
         { label: "1", value: 1 },
         { label: "2", value: 2 },
         { label: "3", value: 3 },
@@ -14,7 +15,11 @@ function CartItem({ item }) {
         { label: "5", value: 5 },
     ];
 
-    const dispatch = useDispatch();
+
+    const oldTotal = item.price * item.quantity;
+    const discount = (item.price * item.discountPercentage / 100) * item.quantity;
+    const newTotal = oldTotal - discount;
+
 
     const handleOnselect = option => {
         dispatch(
@@ -27,8 +32,14 @@ function CartItem({ item }) {
     }
 
     return (
-        <div className="flex items-start flex-wrap shadow">
-            <img src={item.thumbnail} alt="" className="w-[40%] h-auto" />
+        <div className="flex  border gap-3 border-gray-300 bg-white p-1">
+
+            <div className="w-30 h-32 shrink-0">
+                <img src={item.thumbnail}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                />
+            </div>
 
             <div>
                 {/* details */}
@@ -42,7 +53,7 @@ function CartItem({ item }) {
 
                     {/* quantity */}
                     <SelectButton
-                        options={quatity}
+                        options={quatityOptions}
                         placeholder='select quatity'
                         selectedOption={item.quantity}
                         onSelect={handleOnselect}
@@ -50,17 +61,16 @@ function CartItem({ item }) {
                         Qty:
                     </SelectButton>
 
-                    {/* price */}
-                    <span className='font-bold'>{`Rs.${item.itemPrice}`}</span>
+                    {/* total after discount*/}
+                    <span className='font-bold'>{`Rs.${newTotal.toFixed(2)}`}</span>
 
-                    {/* original-price */}
-                    <span className='line-through text-xs'>{item.originalPrice}</span>
+                    {/* total before discound */}
+                    <span className='line-through text-xs'>{oldTotal.toFixed(2)}</span>
 
 
                     <span className='text-xs text-pink-500'>  {/* discount */}
                         {`(${item.discountPercentage}%) OFF`}
                     </span>
-
 
                 </div>
             </div>

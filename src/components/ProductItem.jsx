@@ -1,23 +1,10 @@
 import Button from './Button'
 import { ShoppingBagIcon, HeartIcon } from '@heroicons/react/24/outline'
-import { useDispatch } from 'react-redux';
-import { addCart } from '../redux/features/CartSlice'
 
-function ProductItem({ product, className = '' }) {
 
-    const dispatch = useDispatch();
-    const originalPrice = product.price / (1 - product.discountPercentage / 100);
+function ProductItem({ product, className = '', onClick = () => {}}) {
 
-    const cartItem = {
-        id: product.id,
-        brand: product.brand || null,
-        title: product.title,
-        description: product.description,
-        thumbnail: product.thumbnail,
-        price: product.price,
-        discountPercentage: product.discountPercentage,
-        originalPrice: parseFloat(originalPrice.toFixed(2))
-    }
+    const newPrice = product.price - (product.price * product.discountPercentage / 100);
 
     return (
         <div
@@ -44,7 +31,7 @@ function ProductItem({ product, className = '' }) {
                     <div
                         className='flex items-center gap-2 lg:hidden'>
                         <button
-                            onClick={() => dispatch(addCart(cartItem))}
+                            onClick={ ()=> onClick(product)}
                         >
                             <ShoppingBagIcon
                                 className='w-6 h-6 click-effect cursor-pointer'
@@ -65,11 +52,11 @@ function ProductItem({ product, className = '' }) {
                     {/* name */}
                     <p>{product.title}</p>
 
-                    {/* current-price */}
-                    <span className='font-bold'>{`Rs.${product.price}`}</span>
+                    {/* price after discount */}
+                    <span className='font-bold'>{`Rs.${newPrice.toFixed(2)}`}</span>
 
                     {/* original-price */}
-                    <span className='line-through text-xs'>{originalPrice.toFixed(2)}</span>
+                    <span className='line-through text-xs'>{product.price}</span>
 
                     {/* discount-percentage */}
                     <span
@@ -89,7 +76,7 @@ function ProductItem({ product, className = '' }) {
                     <Button
                         variant='primary'
                         className='py-2 w-full text-xs'
-                        onClick={() => dispatch(addCart(cartItem))}
+                        onClick={() => onClick(product)}
                     >
                         <ShoppingBagIcon
                             className='w-5 h-5'

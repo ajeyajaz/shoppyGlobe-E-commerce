@@ -4,7 +4,7 @@ function IconLabel({ icon: Icon, label, children, className = '', iconClassName 
     return (
         <button
             onClick={() => onClick()}
-            className={`flex ${className}`}
+            className={`flex cursor-pointer ${className}`}
         >
             <Icon className={iconClassName} />
             {/* className="text-sm leading-none font-semibold" */}
