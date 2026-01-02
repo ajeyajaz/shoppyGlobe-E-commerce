@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux"
 import { updateCart } from '../redux/features/CartSlice'
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import SelectButton from './SelectButton'
 
 
-function CartItem({ item }) {
+function CartItem({ item, onClick}) {
 
     const dispatch = useDispatch();
 
@@ -32,7 +33,14 @@ function CartItem({ item }) {
     }
 
     return (
-        <div className="flex  border gap-3 border-gray-300 bg-white p-1">
+        <div className="flex  border gap-3 border-gray-300 bg-white p-1 relative">
+
+            <button
+                className="absolute top-0 right-0  mt-1 mr-0.5 cursor-pointer"
+                onClick={()=> onClick(item.id)}
+            >
+                <XMarkIcon className="w-5 h-5 text-gray-900" />
+            </button>
 
             <div className="w-30 h-32 shrink-0">
                 <img src={item.thumbnail}
