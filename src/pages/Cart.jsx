@@ -3,16 +3,21 @@ import { removeCart } from '../redux/features/CartSlice'
 import CartItem from "../components/CartItem"
 import PriceDetail from "../components/PriceDetail"
 import Button from "../components/Button"
-import { Link } from "react-router-dom"
+import { Link, useNavigate, } from "react-router-dom"
+
+
 function Cart() {
 
-    const cartItems = useSelector(state => state.cart.cartItems)
-    const dispatch = useDispatch()
+    const cartItems = useSelector(state => state.cart.cartItems);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // accepts productID
     const removeCartItem = (id) => {
         dispatch(removeCart({ id }))
     };
+
+
 
     return (
         <>
@@ -20,7 +25,7 @@ function Cart() {
                 <Link to='/'>Home</Link>
             </header>
 
-            <div div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto">
 
                 <h2 className="my-2 font-bold text-gray-600">{cartItems.length} ITEMS</h2>
 
@@ -37,9 +42,15 @@ function Cart() {
 
                     {/* price details */}
                     <PriceDetail products={cartItems} className="border-l border-t border-gray-300" >
-                        <Button variant='primary' className="p-2">place order</Button>
-                    </PriceDetail>
 
+                        <Button
+                            variant='primary'
+                            className="p-2"
+                            onClick={() => navigate('/checkout')}
+                        >
+                            place order
+                        </Button>
+                    </PriceDetail>
                 </div>
             </div>
         </>
