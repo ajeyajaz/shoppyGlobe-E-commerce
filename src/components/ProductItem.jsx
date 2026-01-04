@@ -16,6 +16,7 @@ function ProductItem({ product, className = '', onClick = () => { } }) {
                     src={product.thumbnail}
                     alt=""
                     className='w-full h-50 object-cover'
+                    loading='lazy'
                 />
             </Link>
 

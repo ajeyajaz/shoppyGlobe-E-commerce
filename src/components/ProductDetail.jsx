@@ -31,6 +31,7 @@ function ProductDetail({ product, handleAddToCart}) {
                             <img
                                 key={idx}
                                 src={img}
+                                loading="lazy"
                                 onClick={() => setCurrent(idx)}
                                 className={`w-16 h-16 object-contain border cursor-pointer ${idx === current ? "border-blue-600" : "border-gray-300"
                                     }`}

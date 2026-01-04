@@ -46,6 +46,7 @@ function CartItem({ item, onClick}) {
                 <img src={item.thumbnail}
                     alt={item.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                 />
             </div>
 
