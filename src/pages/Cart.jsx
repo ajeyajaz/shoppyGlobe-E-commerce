@@ -4,6 +4,7 @@ import CartItem from "../components/CartItem"
 import PriceDetail from "../components/PriceDetail"
 import Button from "../components/Button"
 import { Link, useNavigate, } from "react-router-dom"
+import Header from "../components/Header"
 
 
 function Cart() {
@@ -21,11 +22,9 @@ function Cart() {
 
     return (
         <>
-            <header className="border h-15 mb-5">
-                <Link to='/'>Home</Link>
-            </header>
+            <Header />
 
-            <div className="max-w-5xl mx-auto">
+            <main className="max-w-5xl mx-auto mt-20">
 
                 <h2 className="my-2 font-bold text-gray-600">{cartItems.length} ITEMS</h2>
 
@@ -52,7 +51,7 @@ function Cart() {
                         </Button>
                     </PriceDetail>
                 </div>
-            </div>
+            </main>
         </>
     )
 }

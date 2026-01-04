@@ -31,12 +31,12 @@ function Home() {
     }
 
     return (
-        <div>
+        <>
             <Header />
             <ProductList
                 products={data?.products} 
                 onClick={handleAddCart} />
-        </div>
+        </>
     )
 }
 

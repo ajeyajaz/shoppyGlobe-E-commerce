@@ -34,10 +34,12 @@ function Header() {
             justify-around h-20 gap-1 px-2 bg-white flex-wrap shadow-md sm:gap-6">
 
             {/* Brand logo */}
-            <img
-                src={shopyGlobe}
-                className="min-w-min h-auto object-contain"
-            />
+            <Link to='/'>
+                <img
+                    src={shopyGlobe}
+                    className="min-w-min h-auto object-contain"
+                />
+            </Link>
 
             {/* navigation */}
             <NavBar
@@ -62,7 +64,7 @@ function Header() {
                 iconClassName="icon-label__icon"
                 labelClassName="icon-label__text"
             />
-            
+
             {/* Whishlist*/}
             <IconLabel
                 icon={HeartIcon}
