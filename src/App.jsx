@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
 import OrderPlaced from "./pages/OrderPlaced"
-import Practice from "./components/practice"
 import DetailPage from "./pages/Detail"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order-placed" element={<OrderPlaced />} />
-          <Route path="/order" element={<Practice />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
