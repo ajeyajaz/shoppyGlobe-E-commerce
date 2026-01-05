@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
+import Loader from "./components/Loader";
+import NotFoundPage from './pages/NotFound'
 
 const HomePage = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/Detail'));
 const CartPage = lazy(() => import('./pages/Cart'));
 const CheckOutPage = lazy(() => import('./pages/Checkout'));
 const OrderPlacedPage = lazy(() => import('./pages/OrderPlaced'));
-const NotFoundPage = lazy(() => import('./pages/NotFound'));
-
 
 
 function App() {
@@ -19,26 +19,27 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/'
-            element={<Suspense fallback={<p>loading...</p>}><HomePage /></Suspense>}
+            element={<Suspense fallback={<Loader />}><HomePage /></Suspense>}
           />
           <Route
             path='/products/:id'
-            element={<Suspense fallback={<p>loading...</p>}><ProductDetailPage /></Suspense>}
+            element={<Suspense fallback={<Loader />}><ProductDetailPage /></Suspense>}
           />
           <Route
             path="/cart"
-            element={<Suspense fallback={<p>loading....</p>}><CartPage /></Suspense>}
+            element={<Suspense fallback={<Loader />}><CartPage /></Suspense>}
 
           />
           <Route path="/checkout"
-            element={<Suspense fallback={<p>loading....</p>}><CheckOutPage /></Suspense>}
+            element={<Suspense fallback={<Loader />}><CheckOutPage /></Suspense>}
           />
           <Route
             path="/order-placed"
-            element={<Suspense fallback={<p>loading....</p>}><OrderPlacedPage /></Suspense>}
+            element={<Suspense fallback={<Loader />}><OrderPlacedPage /></Suspense>}
           />
           <Route path="*"
-            element={<Suspense fallback={<p>loading....</p>}><NotFoundPage/></Suspense>} />
+            element={<NotFoundPage />}
+          />
         </Routes>
       </BrowserRouter>
     </>

@@ -3,6 +3,7 @@ import ProductList from '../components/ProductList'
 import useFetch from '../hooks/useFetch';
 import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/features/CartSlice';
+import Loader from '../components/Loader';
 
 function Home() {
 
@@ -21,9 +22,6 @@ function Home() {
         dispatch(addCart(cartItem))
     }
 
-    if (loader || !data) {
-        return <p>fetching...</p>
-    }
 
     if (error) {
         return <p>something went wrong..</p>
@@ -31,10 +29,9 @@ function Home() {
 
     return (
         <>
-            <Header/>
-            <ProductList
-                products={data.products}
-                onClick={handleAddCart} />
+            <Header />
+            {data && <ProductList products={data?.products}  onClick={handleAddCart} /> }
+            {loader && <Loader />}
         </>
     )
 }
