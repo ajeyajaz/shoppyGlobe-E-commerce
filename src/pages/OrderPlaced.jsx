@@ -1,6 +1,9 @@
 import { useEffect} from "react"
 import { useNavigate,} from "react-router-dom"
 
+// Redirect user back to home after a few seconds
+
+
 function OrderPlaced({ address }) {
 
     const navigate = useNavigate();

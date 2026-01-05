@@ -3,6 +3,9 @@ import { updateCart } from '../redux/features/CartSlice'
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import SelectButton from './SelectButton'
 
+// Update product quantity when user selects a new value
+// Calculate price after discount
+
 
 function CartItem({ item, onClick}) {
 

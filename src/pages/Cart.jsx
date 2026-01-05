@@ -7,6 +7,8 @@ import { useNavigate, } from "react-router-dom"
 import Header from "../components/Header"
 import Message from "../components/Message"
 
+// Cart-related actions are handled by Redux
+
 
 function Cart() {
 

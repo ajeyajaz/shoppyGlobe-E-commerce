@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useDispatch} from "react-redux";
 import { clearCart } from "../redux/features/CartSlice";
 
+// After confirming address, clear cart and show order confirmation
+
+
 function Checkout() {
     const [address, setAdress] = useState(null);
     const dispatch = useDispatch();

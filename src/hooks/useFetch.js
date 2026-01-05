@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// Common hook to fetch data and handle loading and error states
+// Runs again only when the API URL changes
+
+
 function useFetch(url) {
 
     const [data, setData] = useState(null);

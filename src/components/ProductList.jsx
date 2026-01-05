@@ -1,6 +1,11 @@
 import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 import Message from "./Message";
+
+// Show only products that match the search text
+// If nothing matches, show a friendly message
+
+
 function ProductList({ products, onClick = ()=> {} }) {
 
     const query = useSelector(state => state.search.query.trim());

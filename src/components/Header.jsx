@@ -8,6 +8,11 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link, useNavigate, useLocation} from "react-router"
 import { setSearchQuery } from '../redux/features/searchQuerySlice'
 
+
+// Keep search text in Redux so it doesn’t reset when the page changes
+// Update search value as the user types
+
+
 function Header() {
 
     const navigate = useNavigate();

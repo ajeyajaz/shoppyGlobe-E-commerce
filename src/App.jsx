@@ -14,6 +14,11 @@ const CartPage = lazy(() => import('./pages/Cart'));
 const CheckOutPage = lazy(() => import('./pages/Checkout'));
 const OrderPlacedPage = lazy(() => import('./pages/OrderPlaced'));
 
+
+// Routes are lazy-loaded so the app loads faster on first visit
+// Loader is shown while a page is being fetched
+
+
 const router = createBrowserRouter([
   {
     path: "/",

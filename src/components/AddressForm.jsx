@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+// Simple validation to make sure user enters correct details
+
+
 const schema = z.object({
     name: z.string().min(1, 'name required'),
     mobileNo: z.string().regex(/^\d{10}$/, "Enter valid 10-digit number"),
