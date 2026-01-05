@@ -48,8 +48,6 @@ const router = createBrowserRouter([
 
 function App() {
 
-  console.log(HomePage);
-
   return (
     <>
       <Suspense fallback={<Loader/>}>
