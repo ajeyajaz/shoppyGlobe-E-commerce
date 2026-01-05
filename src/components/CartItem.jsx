@@ -8,7 +8,7 @@ function CartItem({ item, onClick}) {
 
     const dispatch = useDispatch();
 
-    const quatityOptions = [
+    const quantityOptions = [
         { label: "1", value: 1 },
         { label: "2", value: 2 },
         { label: "3", value: 3 },
@@ -62,7 +62,7 @@ function CartItem({ item, onClick}) {
 
                     {/* quantity */}
                     <SelectButton
-                        options={quatityOptions}
+                        options={quantityOptions}
                         placeholder='select quatity'
                         selectedOption={item.quantity}
                         onSelect={handleOnselect}

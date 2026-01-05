@@ -1,5 +1,5 @@
 
-function QuatityBadge({ quantity, className = '' }) {
+function QuantityBadge({ quantity, className = '' }) {
     return (
         <span
             className={`rounded-full p-px px-1 bg-red-600 text-xs font-bold text-white ${className}`}
@@ -9,4 +9,4 @@ function QuatityBadge({ quantity, className = '' }) {
     )
 }
 
-export default QuatityBadge;
+export default QuantityBadge;

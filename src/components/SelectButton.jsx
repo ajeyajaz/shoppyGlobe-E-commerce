@@ -25,7 +25,7 @@ function SelectButton({ selectedOption, children, placeholder = 'select', onSele
             </button>
 
             {open &&
-                <div className="fixed inset-0 bg-black/20">
+                <div className="fixed inset-0 bg-black/20 z-40">
                     <div
                         className="absolute left-0 right-0 bottom-0 p-2 mx-auto bg-white min-h-30
                         rounded-sm sm:max-w-sm">

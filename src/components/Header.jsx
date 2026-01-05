@@ -2,10 +2,10 @@ import NavBar from "./NavBar"
 import shopyGlobe from '../assets/shoppyglobe.svg'
 import IconLabel from "./IconLabel"
 import SearchBox from './SearchBox'
-import QuatityBadge from "./QuantityBadge"
+import QuantityBadge from "./QuantityBadge"
 import { HeartIcon, UserIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useSelector, useDispatch } from "react-redux"
-import { Link, useNavigate, useLocation, useMatch, matchPath } from "react-router"
+import { Link, useNavigate, useLocation} from "react-router"
 import { setSearchQuery } from '../redux/features/searchQuerySlice'
 
 function Header() {
@@ -93,7 +93,7 @@ function Header() {
                     labelClassName="icon-label__text"
                 >
                     {/* quantity count-badge */}
-                    <QuatityBadge
+                    <QuantityBadge
                         quantity={cartItemCount}
                         className="absolute -top-2" />
                 </IconLabel>
