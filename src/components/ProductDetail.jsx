@@ -120,8 +120,8 @@ function ProductDetail({ product, handleAddToCart}) {
                     Customer Reviews ({product.reviews.length})
                 </h3>
 
-                {product.reviews.map((review) => (
-                    <div key={crypto.randomUUID()} className="mt-3">
+                {product.reviews.map((review, idx) => (
+                    <div key={idx} className="mt-3">
                         <div className="flex items-center gap-2">
                             <span className="font-semibold">{review.reviewerName}</span>
                             <RatingBadge className="bg-green-700 px-2 rounded">

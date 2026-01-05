@@ -6,7 +6,7 @@ function ProductList({ products, onClick = ()=> {} }) {
     const query = useSelector(state => state.search.query.trim());
 
     const filteredProduct = products.filter(product => {
-        return product.title.toLowerCase().includes(query.toLowerCase()) ||
+        return product.title?.toLowerCase().includes(query.toLowerCase()) ||
         product.brand?.toLowerCase().includes(query.toLowerCase());
     });
 

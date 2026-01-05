@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-const schmema = z.object({
+const schema = z.object({
     name: z.string().min(1, 'name required'),
-    mobileNo: z.string().min(10, 'Mobile No required').max(10, 'Enter a valid Mobile number'),
+    mobileNo: z.string().regex(/^\d{10}$/, "Enter valid 10-digit number"),
     pinCode: z.string().min(1, 'pincode required'),
     address: z.string().min(1, 'address required'),
     town: z.string().min(1, 'town name required'),
@@ -13,7 +13,7 @@ const schmema = z.object({
 
 function AddressForm({ onSubmit }) {
 
-    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schmema) });
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
 
     return (
 
