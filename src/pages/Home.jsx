@@ -21,8 +21,7 @@ function Home() {
         dispatch(addCart(cartItem))
     }
 
-
-    if (loader) {
+    if (loader || !data) {
         return <p>fetching...</p>
     }
 
@@ -32,9 +31,9 @@ function Home() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <ProductList
-                products={data?.products} 
+                products={data.products}
                 onClick={handleAddCart} />
         </>
     )

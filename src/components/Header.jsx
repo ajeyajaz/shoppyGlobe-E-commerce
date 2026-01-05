@@ -4,17 +4,17 @@ import IconLabel from "./IconLabel"
 import SearchBox from './SearchBox'
 import QuatityBadge from "./QuantityBadge"
 import { HeartIcon, UserIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router"
-
+import { setSearchQuery } from '../redux/features/searchQuerySlice'
 
 function Header() {
 
-    const [input, setInput] = useState('');
     const navigate = useNavigate();
 
     const cartItemCount = useSelector(state => state.cart.cartItems.length);
+    const search = useSelector(state => state.search.query);
+    const dispatch = useDispatch();
 
     const links = [
         { id: 'ne1', label: 'beauty', path: '/beauty' },
@@ -23,9 +23,8 @@ function Header() {
         { id: 'ne4', label: 'groceries', path: '/groceries' },
     ]
 
-    const handleSearchChange = (value) => {
-        console.log(value);
-        setInput(value);
+    const handleSearch = (query) => {
+        dispatch(setSearchQuery(query));
     };
 
     return (
@@ -52,8 +51,8 @@ function Header() {
             {/* searchBox */}
             <SearchBox
                 placeholder='search products...'
-                onChange={handleSearchChange}
-                value={input}
+                onChange={handleSearch}
+                value={search}
             />
 
             {/* User */}

@@ -3,8 +3,9 @@ import { removeCart } from '../redux/features/CartSlice'
 import CartItem from "../components/CartItem"
 import PriceDetail from "../components/PriceDetail"
 import Button from "../components/Button"
-import { Link, useNavigate, } from "react-router-dom"
+import { useNavigate, } from "react-router-dom"
 import Header from "../components/Header"
+import ItemNotFound from "../components/ItemNotFound"
 
 
 function Cart() {
@@ -18,6 +19,13 @@ function Cart() {
         dispatch(removeCart({ id }))
     };
 
+    if (!cartItems.length)
+        return <ItemNotFound
+            title="Hey, it feels so light!"
+            message="There is nothing in your bag."
+            fallBackName="back to shop"
+            url = '/'
+        />
 
 
     return (

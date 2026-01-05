@@ -4,9 +4,10 @@ import { MagnifyingGlassIcon, ArrowLeftIcon } from "@heroicons/react/24/outline"
 function SearchBox({ value, placeholder = '', onChange = () => { } }) {
     const [open, setOpen] = useState(false);
 
+
     return (
         <div className="sm:flex-1">
-            
+
             {/* >= 640px screens */}
             <div
                 className="hidden p-1 border border-gray-400 rounded-sm sm:flex">
@@ -21,13 +22,19 @@ function SearchBox({ value, placeholder = '', onChange = () => { } }) {
             </div>
 
             {/* mobile devices */}
+
+            {/* searchIcon */}
             {!open &&
                 <button
                     className="opacity-effect sm:hidden"
-                    onClick={() => setOpen(true)}>
+                    onClick={() => {
+                        setOpen(true);
+                        onChange('');
+                    }}>
                     <MagnifyingGlassIcon
                         className="w-6 h-6 text-gray-400" />
                 </button>}
+
 
             {/* Mobile overlay */}
             {open &&
@@ -38,14 +45,20 @@ function SearchBox({ value, placeholder = '', onChange = () => { } }) {
                         <button>
                             <ArrowLeftIcon
                                 className="w-6 h-6 text-gray-500"
-                                onClick={() => setOpen(false)}
+                                onClick={() => {
+                                    setOpen(false);
+                                    onChange('');
+                                }}
+
                             />
                         </button>
                         <input
                             type="text"
                             className="flex-1 py-2 px-1 outline-0"
-                            onChange={(e) => onChange(e.target.value)}
-                            value={value} />
+                            value={value}
+                            onChange={ (e)=> onChange(e.target.value)}
+                            onKeyDown={ (e) => {if(e.key === 'Enter') setOpen(false)}}
+                        />
                         <button>
                             <MagnifyingGlassIcon
                                 className="w-6 h-6 text-gray-500" />
