@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
-import ItemNotFound from "./ItemNotFound";
+import Message from "./Message";
 function ProductList({ products, onClick = ()=> {} }) {
 
     const query = useSelector(state => state.search.query.trim());
@@ -10,7 +10,7 @@ function ProductList({ products, onClick = ()=> {} }) {
         product.brand?.toLowerCase().includes(query.toLowerCase());
     });
 
-    if(!filteredProduct.length) return <ItemNotFound/>
+    if(!filteredProduct.length) return <Message/>
     
     return (
             <div

@@ -5,7 +5,7 @@ import PriceDetail from "../components/PriceDetail"
 import Button from "../components/Button"
 import { useNavigate, } from "react-router-dom"
 import Header from "../components/Header"
-import ItemNotFound from "../components/ItemNotFound"
+import Message from "../components/Message"
 
 
 function Cart() {
@@ -20,10 +20,10 @@ function Cart() {
     };
 
     if (!cartItems.length)
-        return <ItemNotFound
+        return <Message
             title="Hey, it feels so light!"
             message="There is nothing in your bag."
-            fallBackName="back to shop"
+            fallBackText="back to shop"
             url = '/'
         />
 

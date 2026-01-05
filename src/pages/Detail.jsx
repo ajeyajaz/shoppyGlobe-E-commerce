@@ -1,17 +1,36 @@
 import { useDispatch } from "react-redux";
 import Header from "../components/Header";
-import { useParams, useNavigate } from "react-router";
-import useFetch from "../hooks/useFetch";
+import { useParams} from "react-router";
 import ProductDetail from "../components/ProductDetail";
 import { addCart } from "../redux/features/CartSlice";
 import Loader from "../components/Loader";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Message from "../components/Message";
 
 function DetailPage() {
 
     const { id } = useParams();
     const url = `https://dummyjson.com/products/${id}`;
-    const { data: product, loader, error } = useFetch(url);
+
     const dispatch = useDispatch();
+    const [product, setProduct] = useState(null);
+    const [error, setError] = useState(null);
+    const [loader, setLoader] = useState(false);
+
+    useEffect(()=> {
+        const controller = new AbortController();
+        setLoader(true);
+
+        axios.get(url, {signal: controller.signal})
+        .then((res) => setProduct(res.data))
+        .catch((e)=> {
+            if(!axios.isCancel(e)) setError(e.message);
+        })
+        .finally(()=> setLoader(false));
+
+        return () => controller.abort();
+    }, []);
 
     const handleAddToCart = () => {
         const cartItem = {
@@ -25,15 +44,17 @@ function DetailPage() {
         dispatch(addCart(cartItem));
     }
 
-
-    if (error) return <p>Error loading product</p>;
-    if (loader) return <p>Fetching...</p>;
-
     return (
         <>
             <Header />
             {product && <ProductDetail product={product} handleAddToCart={handleAddToCart} />}
             {loader && <Loader />}
+            {error && (
+                <Message
+                    title="Guess something went wrong!"
+                    message={error}        
+                 />
+            )}
         </>
 
     )

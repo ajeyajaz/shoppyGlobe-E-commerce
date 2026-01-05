@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 
-function ItemNotFound({
+function Message({
     title = "Item not found",
     message = "We couldn’t find any items matching your search.",
     fallBackText = '',
@@ -29,4 +29,4 @@ function ItemNotFound({
     );
 }
 
-export default ItemNotFound;
+export default Message;

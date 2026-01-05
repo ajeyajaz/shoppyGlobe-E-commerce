@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch';
 import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/features/CartSlice';
 import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 function Home() {
 
@@ -23,15 +24,17 @@ function Home() {
     }
 
 
-    if (error) {
-        return <p>something went wrong..</p>
-    }
-
     return (
         <>
             <Header />
-            {data && <ProductList products={data?.products}  onClick={handleAddCart} /> }
+            {data && <ProductList products={data?.products} onClick={handleAddCart} />}
             {loader && <Loader />}
+            {error && (
+                <Message
+                    title="Guess something went wrong!"
+                    message={error}
+                />
+            )}
         </>
     )
 }
